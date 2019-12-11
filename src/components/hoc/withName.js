@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-const WithName = OriginalComponent => {
-  class NewComponent extends Component {
+const withName = WrappedComponent => {
+  class WithName extends Component {
     render() {
-      return <OriginalComponent name="John" />;
+      return <WrappedComponent {...this.props} name="John" />;
     }
   }
 
-  return NewComponent;
+  return WithName;
 };
 
-export default WithName;
+export default withName;

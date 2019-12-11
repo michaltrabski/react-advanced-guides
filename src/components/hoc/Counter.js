@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import WithName from "./withName";
+import React from "react";
+import withName from "./withName";
+import withCounter from "./withCounter";
 
 const Counter = props => {
-  const [count, setCount] = useState(0);
   return (
     <div>
       <span>
-        {props.name} Clicked counter <strong>{count}</strong> times{" "}
+        {props.name} Clicked counter <strong>{props.count}</strong> times{" "}
       </span>
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={props.incrementCount}>+</button>
     </div>
   );
 };
 
-export default WithName(Counter);
+export default withName(withCounter(Counter));
